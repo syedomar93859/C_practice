@@ -14,22 +14,38 @@
 // Provides access to the POSIX operating system API
 #include <unistd.h>
 
+// int main (int argc, char* argv[]){
+//     int id = fork();
+//     //printf("Hello World from id: %d!\n", id);
+//     if (id == 0){
+//         for (int row = 1; row < 51; i++){
+//             for (int column = 1; column < 1001; column++){
+//                 int cell_val = matrix[row][column];
+//             }
+
+//         }
+//     }else{
+//         for (int row = 51; row < 101; i++){
+//             for (int column = 1; column < 1001; column++){
+//                 int cell_val = matrix[row][column];
+//             }
+//         }
+//     }
+//     return 0;
+// }
+
+
+
 int main (int argc, char* argv[]){
     int id = fork();
     //printf("Hello World from id: %d!\n", id);
-    if (id == 0){
-        for (int row = 1; row < 51; i++){
-            for (int column = 1; column < 1001; column++){
-                int cell_val = matrix[row][column];
-            }
+    for (int fork_num = 1; fork_num <= 101; fork_num++){
+        int id = fork();
 
-        }
-    }else{
-        for (int row = 51; row < 101; i++){
+        if (id == 0){
             for (int column = 1; column < 1001; column++){
                 int cell_val = matrix[row][column];
             }
-        }
     }
     return 0;
 }
