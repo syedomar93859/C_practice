@@ -19,10 +19,8 @@
 
 
 int main (int argc, char* argv[]){
-    // When the program gets to fork, what happens is that a child process gets born and starts executing the following lines just like
-    // the parent process. The child process executes alongisde the main/parent process at the same time
-    fork();
-    printf("Hello World!\n");
+    int id = fork();
+    printf("Hello World from id: %d!\n", id);
     return 0;
 }
 

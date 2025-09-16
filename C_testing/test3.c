@@ -17,12 +17,15 @@
 // Header for wait() and waitpid()
 #include <unistd.h>
 
-
 int main (int argc, char* argv[]){
-    // When the program gets to fork, what happens is that a child process gets born and starts executing the following lines just like
-    // the parent process. The child process executes alongisde the main/parent process at the same time
-    fork();
-    printf("Hello World!\n");
+    int id = fork();
+    if (id == 0){
+        // This is the child process
+        printf("Hello from child process\n");
+    }else{
+        // This is the parent process
+        printf("Hello from the parent process\n");
+        wait(NULL); // wait for the child process to terminate
+    }
     return 0;
 }
-
